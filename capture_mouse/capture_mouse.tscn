@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://s02m3dhww55r"]
+
+[ext_resource type="Script" uid="uid://bynur7ne3wxeo" path="res://reusables/capture_mouse/capture_mouse.gd" id="1_p8mwj"]
+
+[node name="CaptureMouse" type="Node" unique_id=1235116061]
+script = ExtResource("1_p8mwj")
