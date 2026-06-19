@@ -18,12 +18,14 @@ func _action_add_key_event(action, keycode):
 
 func _action_add_joypad_motion_event(action, axis, axis_value):
 	var event = InputEventJoypadMotion.new()
+	event.device = -1
 	event.axis = axis
 	event.axis_value = axis_value
 	InputMap.action_add_event(action, event)
 
 func _action_add_joypad_button_event(action, button):
 	var event = InputEventJoypadButton.new()
+	event.device = -1
 	event.button_index = button
 	InputMap.action_add_event(action, event)
 
