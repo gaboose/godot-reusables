@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d3vrvc3sn8qq8"]
+
+[ext_resource type="Shader" uid="uid://njhfsynluop4" path="res://reusables/uber_shader/uber_shader.gdshader" id="1_i2r84"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s8ti2"]
+shader = ExtResource("1_i2r84")
+shader_parameter/ld_enabled = true
+shader_parameter/barrel = 0.0800000038
+shader_parameter/ca_enabled = true
+shader_parameter/levels = 8
+shader_parameter/spread = 0.0130000006175
+shader_parameter/falloff = 0.05
+shader_parameter/fg_enabled = true
+shader_parameter/intensity = 0.030000001425
+shader_parameter/darken_enabled = true
+shader_parameter/darken_amount = 0.400000019
+shader_parameter/darken_inner = 0.3
+shader_parameter/darken_outer = 0.7
+shader_parameter/blur_enabled = true
+shader_parameter/blur_amount = 2.000000095
+shader_parameter/blur_inner = 0.30000001425
+shader_parameter/blur_outer = 0.6000000285
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=428066483]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=958093146]
+material = SubResource("ShaderMaterial_s8ti2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
