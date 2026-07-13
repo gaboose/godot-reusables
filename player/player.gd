@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-const ACCELERATION = 60.0
+const ACCELERATION = 40.0
 const FRICTION = 15.0
-const SPRINT = 1.6
+const SPRINT = 2.0
 const JUMP_ACCELERATION = 3.0
 const JUMP_IMPULSE = 4.5
 const JUMP_FRICTION = 0.01
@@ -60,7 +60,7 @@ func _ready() -> void:
 	
 	InputMap.add_action("move_sprint")
 	_action_add_key_event("move_sprint", KEY_SHIFT)
-	_action_add_joypad_button_event("move_sprint", JOY_BUTTON_RIGHT_STICK)
+	_action_add_joypad_button_event("move_sprint", JOY_BUTTON_RIGHT_SHOULDER)
 	
 	InputMap.add_action("look_left")
 	_action_add_joypad_motion_event("look_left", JOY_AXIS_RIGHT_X, -1.0)
@@ -107,9 +107,10 @@ func _physics_process(delta: float) -> void:
 	rotate_object_local(Vector3(-1, 0, 0), smoothed_look_input.y * RIGHT_JOYSTICK_SENSITIVITY * delta)
 
 	var move_input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var move_size = move_input.length()
 	var move_direction := transform.basis * Vector3(move_input.x, 0, move_input.y)
 	move_direction.y = 0.0
-	move_direction = move_direction.normalized()
+	move_direction = move_direction.normalized() * move_size
 	
 	var hvel = Vector2(velocity.x, velocity.z)
 	var friction = (FRICTION if is_on_floor() else JUMP_FRICTION)
